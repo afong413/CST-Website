@@ -17,5 +17,6 @@ const { Content } = await entry.render()
 ---
 
 <Layout>
+  <h1 class="underline">{entry.data.date.toLocaleDateString()} Meeting</h1>
   <Content />
 </Layout>

@@ -2,3 +2,42 @@ html {
   background-color: theme("colors.neutral.950");
   color: theme("colors.neutral.50");
 }
+
+h1 {
+  font-size: theme("fontSize.5xl");
+}
+
+h2 {
+  font-size: theme("fontSize.4xl");
+}
+
+h3 {
+  font-size: theme("fontSize.3xl");
+}
+
+h4 {
+  font-size: theme("fontSize.2xl");
+}
+
+h5 {
+  font-size: theme("fontSize.xl");
+}
+
+h6 {
+  font-size: theme("fontSize.lg");
+}
+
+p,
+pre {
+  margin-bottom: 1rem;
+}
+
+code:not(pre > code) {
+  font-family: theme("fontFamily.mono");
+  background-color: #24292e;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+  padding-left: 0.325rem;
+  padding-right: 0.325rem;
+  border-radius: 0.25rem;
+}
