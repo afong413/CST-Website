@@ -1,0 +1,14 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import { MeetingList } from "../../components/MeetingList"
+import { getCollection } from "astro:content"
+
+const meetings = await getCollection("meetings")
+
+console.log(meetings)
+---
+
+<Layout title="meetings">
+  <h1 class="text-5xl font-bold">Meetings</h1>
+  <MeetingList meetings={meetings} client:load />
+</Layout>
