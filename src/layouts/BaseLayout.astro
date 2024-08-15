@@ -1,0 +1,34 @@
+---
+import "./global.css"
+import "@fontsource/crimson-text"
+import "@fontsource/carlito"
+import "@fontsource-variable/fira-code"
+
+interface Props {
+  title?: string
+  description?: string
+  index?: boolean
+}
+
+const { title, description, index } = Astro.props
+---
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <Fragment
+      set:html={description
+        ? `<meta name="description" content="${description}" />`
+        : ""}
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ?? "CPS Computer Science Team"}</title>
+    <meta name="robots" content={index ? "all" : "noindex"} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
