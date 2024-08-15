@@ -11,7 +11,22 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.2",
+    "@astrojs/solid-js": "^4.4.1",
+    "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.13.4",
+    "solid-js": "^1.8.21",
+    "tailwindcss": "^3.4.10",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-astro"
+    ],
+    "singleQuote": false,
+    "semi": false
   }
 }
