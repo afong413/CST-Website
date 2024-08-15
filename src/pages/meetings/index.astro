@@ -4,8 +4,6 @@ import { MeetingList } from "../../components/MeetingList"
 import { getCollection } from "astro:content"
 
 const meetings = await getCollection("meetings")
-
-console.log(meetings)
 ---
 
 <Layout title="meetings">
