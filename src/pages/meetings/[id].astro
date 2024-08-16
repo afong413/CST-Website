@@ -1,22 +1,22 @@
 ---
 import { getEntry } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
-// 1. Get the slug from the incoming server request
+
 const { id } = Astro.params
 if (id === undefined) {
   throw new Error("ID is required")
 }
-// 2. Query for the entry directly using the request slug
+
 const entry = await getEntry("meetings", id)
-// 3. Redirect if the entry does not exist
+
 if (entry === undefined) {
   return Astro.rewrite("/404")
 }
-// 4. (Optional) Render the entry to HTML in the template
+
 const { Content } = await entry.render()
 ---
 
-<Layout>
+<Layout title="">
   <h1 class="underline">{entry.data.date.toLocaleDateString()} Meeting</h1>
   <Content />
 </Layout>
