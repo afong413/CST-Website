@@ -42,7 +42,8 @@ code:not(pre > code) {
   border-radius: 0.25rem;
 }
 
-a[href] { /* Links */
+a[href] {
+  /* Links */
   text-decoration: underline;
   text-decoration-thickness: 1px;
 }
