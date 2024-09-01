@@ -1,26 +1,17 @@
 ---
 import NavBarItem from "./NavBarItem.astro"
+import NavBarTitle from "./NavBarTitle.astro"
 ---
 
-<nav class="fixed top-0 flex h-20 w-full select-none bg-z-body">
-  <NavBarItem href="/">Home</NavBarItem>
-  <NavBarItem href="/meetings">Meetings</NavBarItem>
-  <h1
-    class="absolute left-0 right-0 top-0 flex h-20 items-center justify-center text-center text-2xl text-z-heading"
-  >
-    <span class="hidden xl:inline">
-      <span class="font-serif">College</span><span class="font-black">Prep</span
-      > Computer Science Team
-    </span>
-    <span class="hidden lg:max-xl:inline">
-      <span class="font-serif">College</span><span class="font-black">Prep</span
-      > CST
-    </span>
-    <span class="inline lg:hidden">CPS CST</span>
-  </h1>
-  <NavBarItem href="https://github.com/afong413/CST-Website" right
-    >GitHub</NavBarItem
-  >
+<nav class="fixed top-0 h-12 w-full select-none bg-z-body sm:h-20">
+  <NavBarTitle class="absolute left-0 right-0 top-0 hidden h-20 sm:flex" />
+  <div class="flex h-12 w-full sm:h-20">
+    <NavBarItem href="/" br>Home</NavBarItem>
+    <NavBarItem href="/meetings" bl br>Meetings</NavBarItem>
+    <NavBarItem href="https://github.com/afong413/CST-Website" right bl
+      >GitHub</NavBarItem
+    >
+  </div>
 </nav>
 
-<div class="h-20"></div>
+<div class="h-12 sm:h-20"></div>

@@ -1,0 +1,19 @@
+---
+interface Props {
+  class: string
+}
+---
+
+<h1
+  class={"text-center text-2xl text-z-heading items-center justify-center " +
+    Astro.props.class}
+>
+  <span class="hidden lg:inline">
+    <span class="font-serif">College</span><span class="font-black">Prep</span> Computer
+    Science Team
+  </span>
+  <span class="hidden md:max-lg:inline">
+    <span class="font-serif">College</span><span class="font-black">Prep</span> CST
+  </span>
+  <span class="inline md:hidden">CPS CST</span>
+</h1>

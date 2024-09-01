@@ -3,13 +3,19 @@ interface Props {
   href: string
   children: string
   right?: boolean
+  bl?: boolean
+  br?: boolean
 }
 ---
 
 <a
   href={Astro.props.href}
-  class={"z-10 flex h-full w-32 items-center justify-center p-4 text-xl hover:bg-z-body-selected" +
-    (Astro.props.right ? " ml-auto" : "")}
+  class="z-10 flex h-full w-24 items-center justify-center text-xl hover:bg-z-body-selected sm:w-32"
+  class:list={{
+    "ml-auto": Astro.props.right,
+    "rounded-bl-xl": Astro.props.bl,
+    "rounded-br-xl": Astro.props.br,
+  }}
 >
   <slot />
 </a>
