@@ -1,12 +1,8 @@
-import { defineCollection } from "astro:content"
-
-import { meetingSchema } from "../schemas"
-
-const meetingCollection = defineCollection({
-  type: "content",
-  schema: meetingSchema,
-})
+import { defineCollection, z } from "astro:content"
 
 export const collections = {
-  meetings: meetingCollection,
+  meetings: defineCollection({
+    type: "content",
+    schema: z.object({}),
+  }),
 }

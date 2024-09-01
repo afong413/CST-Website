@@ -21,7 +21,7 @@ const { title, description, index } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title ?? "CPS Computer Science Team"}</title>
+    <title>{title ? `${title} | CST` : "CPS Computer Science Team"}</title>
     <meta name="robots" content={index ? "all" : "noindex"} />
   </head>
   <body>

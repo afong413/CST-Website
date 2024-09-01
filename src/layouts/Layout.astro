@@ -1,12 +1,19 @@
 ---
 import NavBar from "../components/NavBar.astro"
-import BaseLayout, { type Props } from "./BaseLayout.astro"
+import BaseLayout, { type Props as BaseProps } from "./BaseLayout.astro"
+
+interface Props extends BaseProps {
+  width?: `w-${string}`
+}
 ---
 
 <BaseLayout {...Astro.props}>
   <div class="flex h-screen flex-col">
     <NavBar />
-    <div class="flex h-full flex-col px-8 pb-8">
+    <div
+      class={"mx-auto flex h-full max-w-full flex-col px-8 pb-8 " +
+        (Astro.props.width || "w-[64rem]")}
+    >
       <slot />
     </div>
   </div>

@@ -1,12 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro"
-import { MeetingList } from "../../components/MeetingList"
+import Meeting from "../../components/Meeting.astro"
 import { getCollection } from "astro:content"
 
 const meetings = await getCollection("meetings")
 ---
 
-<Layout title="meetings">
-  <h1 class="text-5xl font-bold">Meetings</h1>
-  <MeetingList meetings={meetings} client:load />
+<Layout title="Meetings" width="w-[56rem]">
+  <h1 class="mt-8 text-2xl font-bold text-z-heading">Meetings</h1>
+  {meetings.reverse().map((x) => <Meeting meeting={x} />)}
 </Layout>
