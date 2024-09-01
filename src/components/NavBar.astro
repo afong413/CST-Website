@@ -3,7 +3,9 @@ import NavBarItem from "./NavBarItem.astro"
 import NavBarTitle from "./NavBarTitle.astro"
 ---
 
-<nav class="fixed top-0 h-12 w-full select-none bg-z-body sm:h-20">
+<nav class="fixed top-0 h-12 w-full select-none backdrop-blur-md sm:h-20">
+  <div class="fixed left-0 right-0 top-0 h-12 bg-z-body opacity-50 sm:h-20">
+  </div>
   <NavBarTitle class="absolute left-0 right-0 top-0 hidden h-20 sm:flex" />
   <div class="flex h-12 w-full sm:h-20">
     <NavBarItem href="/" br>Home</NavBarItem>
@@ -14,4 +16,12 @@ import NavBarTitle from "./NavBarTitle.astro"
   </div>
 </nav>
 
-<div class="h-12 sm:h-20"></div>
+<div class="hx-12 sm:hx-20"></div>
+
+{
+  /**
+   * The custom `hx-` class sets a forced exact height because for some reason
+   * the browser will shrink the height of the element above to fit other
+   * elements unless it also has `min-height` and `max-height` set.
+   */
+}

@@ -13,13 +13,13 @@ const rendered = await meeting.render()
   href={`/meetings/${meeting.id.split(".").slice(0, -1).join()}`}
   class="mt-12 text-2xl"
 >
-  <h2 class="flex border-b border-z pb-2">{meeting.slug}</h2>
+  <h2 class="border-b border-z pb-2">{meeting.slug}</h2></a
+>
 
-  <div class="ml-4 border-l border-z py-3 pl-4">
-    <div
-      class="line-clamp-6 text-z-subtitle [&_h1]:mb-2 [&_h1]:font-bold [&_h1]:text-z last:[&_h1]:mb-0"
-    >
-      <rendered.Content />
-    </div>
+<div class="ml-4 border-l border-z py-3 pl-4 text-xl">
+  <div
+    class="line-clamp-6 text-z-subtitle *:my-2 first:*:mt-0 last:*:mb-0 [&_h1]:font-bold [&_h1]:text-z"
+  >
+    <rendered.Content />
   </div>
-</a>
+</div>

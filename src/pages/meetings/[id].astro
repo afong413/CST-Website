@@ -1,6 +1,8 @@
 ---
 import { getEntry } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
+import type { GetStaticPaths } from "astro"
+import { getCollection } from "astro:content"
 
 const { id } = Astro.params
 if (id === undefined) {
@@ -13,10 +15,32 @@ if (entry === undefined) {
   return Astro.rewrite("/404")
 }
 
-const { Content } = await entry.render()
+const { Content, headings } = await entry.render()
+
+export const getStaticPaths = (async () => {
+  const meetings = await getCollection("meetings")
+  return meetings.map((x) => ({ params: { id: x.slug } }))
+}) satisfies GetStaticPaths
 ---
 
-<Layout title="">
-  <h1 class="underline">{entry.data.date.toLocaleDateString()} Meeting</h1>
-  <Content />
+<Layout title={headings[0]?.text ?? entry.slug} width="w-[56rem]">
+  <h1 class="mt-8 border-b border-z pb-2 text-2xl font-bold text-z-heading">
+    {entry.slug}
+  </h1>
+
+  <div
+    class="x prose prose-neutral prose-blue prose-invert mt-12 max-w-full pb-24 text-z"
+  >
+    <Content />
+  </div>
 </Layout>
+
+<style>
+  .x {
+    @apply text-xl;
+
+    pre {
+      @apply -mx-5;
+    }
+  }
+</style>

@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require("tailwindcss/defaultTheme")
+const theme = require("tailwindcss/defaultTheme")
 const { zSnoutTheme: z } = require("@zsnout/tailwind")
 const prose = require("@tailwindcss/typography")
 
@@ -8,11 +8,48 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Carlito", ...defaultTheme.fontFamily.sans],
-        serif: ["Crimson Text", ...defaultTheme.fontFamily.serif],
-        mono: ["Fira Sans Variable", ...defaultTheme.fontFamily.mono],
+        sans: ["Carlito", ...theme.fontFamily.sans],
+        serif: ["Crimson Text", ...theme.fontFamily.serif],
+        mono: ["Fira Sans Variable", ...theme.fontFamily.mono],
       },
     },
   },
-  plugins: [z(), prose()],
+  plugins: [
+    z(),
+    prose(),
+    /** @type {import("tailwindcss/types/config").PluginCreator} */
+    ({ addVariant, matchVariant, addComponents, matchComponents }) => {
+      matchComponents(
+        {
+          wx(value) {
+            return { width: value, "min-width": value, "max-width": value }
+          },
+        },
+        {
+          supportsNegativeValues: true,
+          values: {
+            ...theme?.maxWidth,
+            ...theme?.width,
+            ...theme?.spacing,
+          },
+          type: "relative-size",
+        },
+      )
+      matchComponents(
+        {
+          hx(value) {
+            return { height: value, "min-height": value, "max-height": value }
+          },
+        },
+        {
+          supportsNegativeValues: true,
+          values: {
+            ...theme?.maxHeight,
+            ...theme?.height,
+            ...theme?.spacing,
+          },
+        },
+      )
+    },
+  ],
 }
