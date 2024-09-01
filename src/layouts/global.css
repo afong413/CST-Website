@@ -1,10 +1,11 @@
 html {
-  background-color: theme("colors.neutral.950");
-  color: theme("colors.neutral.50");
+  @apply z-dark-neutral z-dark-focus-blue;
+  @apply bg-z-body text-z;
 }
 
+/*
 h1 {
-  font-size: theme("fontSize.5xl");
+  @apply text-7xl;
 }
 
 h2 {
@@ -43,7 +44,7 @@ code:not(pre > code) {
 }
 
 a[href] {
-  /* Links */
+  /* Links * /
   text-decoration: underline;
   text-decoration-thickness: 1px;
-}
+} */

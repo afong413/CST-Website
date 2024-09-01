@@ -1,0 +1,15 @@
+---
+interface Props {
+  href: string
+  children: string
+  right?: boolean
+}
+---
+
+<a
+  href={Astro.props.href}
+  class={"z-10 flex h-full w-32 items-center justify-center p-4 text-xl hover:bg-z-body-selected" +
+    (Astro.props.right ? " ml-auto" : "")}
+>
+  <slot />
+</a>

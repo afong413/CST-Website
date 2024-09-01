@@ -1,43 +1,26 @@
-<nav
-  class="w-full h-20 flex items-center select-none justify-center fixed top-0 bg-neutral-950"
->
-  <div class="flex absolute left-0 h-full">
-    <a
-      href="/"
-      class="text-2xl h-full w-32 p-4 flex justify-center items-center hover:bg-neutral-900 z-10"
-      >Home</a
-    >
-    <a
-      href="/meetings"
-      class="text-2xl h-full w-32 p-4 flex justify-center items-center hover:bg-neutral-900 z-10"
-      >Meetings</a
-    >
-  </div>
-  <div class="justify-center items-center absolute flex xl:visible invisible">
-    <h1 class="text-center">
+---
+import NavBarItem from "./NavBarItem.astro"
+---
+
+<nav class="fixed top-0 flex h-20 w-full select-none bg-z-body">
+  <NavBarItem href="/">Home</NavBarItem>
+  <NavBarItem href="/meetings">Meetings</NavBarItem>
+  <h1
+    class="absolute left-0 right-0 top-0 flex h-20 items-center justify-center text-center text-2xl text-z-heading"
+  >
+    <span class="hidden xl:inline">
       <span class="font-serif">College</span><span class="font-black">Prep</span
       > Computer Science Team
-    </h1>
-  </div>
-  <div
-    class="w-full justify-center items-center absolute flex xl:invisible lg:visible invisible"
-  >
-    <h1 class="text-center">
+    </span>
+    <span class="hidden lg:max-xl:inline">
       <span class="font-serif">College</span><span class="font-black">Prep</span
       > CST
-    </h1>
-  </div>
-  <div
-    class="w-full justify-center items-center absolute flex lg:invisible visible"
+    </span>
+    <span class="inline lg:hidden"> CPS CST </span>
+  </h1>
+  <NavBarItem href="https://github.com/afong413/CST-Website" right
+    >GitHub</NavBarItem
   >
-    <h1>CPS CST</h1>
-  </div>
-  <div class="absolute right-0 flex h-full">
-    <a
-      href="https://github.com/afong413/CST-Website"
-      class="text-2xl h-full w-32 p-4 flex justify-center items-center hover:bg-neutral-900 z-10"
-      >GitHub</a
-    >
-  </div>
 </nav>
+
 <div class="h-20"></div>

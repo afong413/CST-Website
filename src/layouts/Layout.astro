@@ -1,20 +1,12 @@
 ---
 import NavBar from "../components/NavBar.astro"
-import BaseLayout from "./BaseLayout.astro"
-
-interface Props {
-  title?: string
-  description?: string
-  index?: boolean
-}
-
-const { title, description, index } = Astro.props
+import BaseLayout, { type Props } from "./BaseLayout.astro"
 ---
 
-<BaseLayout title={title} description={description} index={index}>
-  <div class="flex flex-col h-screen">
+<BaseLayout {...Astro.props}>
+  <div class="flex h-screen flex-col">
     <NavBar />
-    <div class="flex flex-col px-8 h-full">
+    <div class="flex h-full flex-col px-8 pb-8">
       <slot />
     </div>
   </div>
