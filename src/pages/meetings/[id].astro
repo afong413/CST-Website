@@ -24,23 +24,53 @@ export const getStaticPaths = (async () => {
 ---
 
 <Layout title={headings[0]?.text ?? entry.slug} width="w-[56rem]">
-  <h1 class="mt-8 border-b border-z pb-2 text-2xl font-bold text-z-heading">
-    {entry.slug}
-  </h1>
-
-  <div
-    class="x prose prose-neutral prose-blue prose-invert mt-12 max-w-full pb-24 text-z"
-  >
+  <div class="x mt-12 max-w-full pb-24 font-mono text-xl text-z">
     <Content />
   </div>
 </Layout>
 
 <style>
   .x {
-    @apply text-xl;
+    > * {
+      @apply my-5 first:mt-0 last:mb-0;
+    }
+
+    h1 {
+      @apply font-bold text-z-heading before:text-z-subtitle before:content-['#_'];
+    }
+
+    h2 {
+      @apply font-bold text-z-heading before:text-z-subtitle before:content-['##_'];
+    }
+
+    h3 {
+      @apply font-bold text-z-heading before:text-z-subtitle before:content-['###_'];
+    }
 
     pre {
-      @apply -mx-5;
+      @apply -mx-4 rounded-lg px-4 py-2;
+    }
+
+    a {
+      @apply text-z-link underline underline-offset-[3px];
+    }
+
+    code:where(:not(pre *)) {
+      @apply font-bold text-z-heading before:content-['`'] after:content-['`'];
+    }
+
+    ol {
+      list-style-type: decimal;
+      padding-left: 3ch;
+    }
+
+    ul {
+      list-style-type: "- ";
+      padding-left: 2ch;
+    }
+
+    ::marker {
+      @apply text-z-subtitle;
     }
   }
 </style>

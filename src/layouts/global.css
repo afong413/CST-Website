@@ -1,4 +1,20 @@
 html {
-  @apply z-dark-neutral z-dark-focus-blue;
+  @apply z-dark-neutral z-dark-focus-green;
   @apply bg-z-body text-z;
+}
+
+h4,
+h5,
+h6 {
+  @apply bg-red-500 text-red-500;
+  font-size: 0;
+
+  &:before {
+    content: "h4, h5, and h6 are banned from this site. They are an offense to the beauty of HTML and should never have existed. Remove the offending tag immediately or risk a permanent ban.";
+    @apply text-6xl text-red-100;
+  }
+}
+
+::selection {
+  @apply bg-green-800 text-green-400;
 }
