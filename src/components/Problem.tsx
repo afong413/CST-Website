@@ -53,7 +53,7 @@ export function Problem(props: {
 
   return (
     <>
-      <div class="mb-2 flex h-16 w-full gap-2 p-2 pl-0 items-center">
+      <div class="mb-2 flex h-16 w-full items-center gap-2 p-2 pl-0">
         <h2 class="text-xl">Tests: </h2>
         {correct() ? (
           <For each={correct()}>

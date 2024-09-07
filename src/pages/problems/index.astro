@@ -5,5 +5,10 @@ import Layout from "../../layouts/Layout.astro"
 
 <Layout title="Problems" width="w-[56rem]">
   <h1 class="mt-8 text-2xl font-bold text-z-heading">Problems</h1>
-  <Problem functionName="test" params={["x", "y", "z"]} tests={{6: [1, 2, 3], 120: [4, 5, 6]}} client:load/>
+  <Problem
+    functionName="test"
+    params={["x", "y", "z"]}
+    tests={{ 6: [1, 2, 3], 120: [4, 5, 6] }}
+    client:load
+  />
 </Layout>

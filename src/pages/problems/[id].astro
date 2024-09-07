@@ -35,7 +35,12 @@ export const getStaticPaths = (async () => {
     class="x prose prose-neutral prose-blue prose-invert mt-12 max-w-full pb-24 text-z"
   >
     <Content />
-    <Problem functionName={entry.data.functionName} params={entry.data.params} tests={Object.fromEntries(entry.data.tests)} client:load/>
+    <Problem
+      functionName={entry.data.functionName}
+      params={entry.data.params}
+      tests={Object.fromEntries(entry.data.tests)}
+      client:load
+    />
   </div>
 </Layout>
 
