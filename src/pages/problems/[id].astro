@@ -1,0 +1,50 @@
+---
+import { getEntry } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+import type { GetStaticPaths } from "astro"
+import { getCollection } from "astro:content"
+import { Problem } from "../../components/Problem"
+
+const { id } = Astro.params
+if (id === undefined) {
+  throw new Error("ID is required")
+}
+
+const entry = await getEntry("problems", id)
+
+if (entry === undefined) {
+  return Astro.rewrite("/404")
+}
+
+const { Content } = await entry.render()
+
+export const getStaticPaths = (async () => {
+  const problems = await getCollection("problems")
+  return problems.map((entry) => ({
+    params: { id: entry.slug },
+  }))
+}) satisfies GetStaticPaths
+---
+
+<Layout title={`Problem ${entry.slug}`} width="w-[56rem]">
+  <h1 class="mt-8 border-b border-z pb-2 text-2xl font-bold text-z-heading">
+    Problem {entry.slug}
+  </h1>
+
+  <div
+    class="x prose prose-neutral prose-blue prose-invert mt-12 max-w-full pb-24 text-z"
+  >
+    <Content />
+    <Problem functionName={entry.data.functionName} params={entry.data.params} tests={Object.fromEntries(entry.data.tests)} client:load/>
+  </div>
+</Layout>
+
+<style>
+  .x {
+    @apply text-xl;
+
+    pre {
+      @apply -mx-5;
+    }
+  }
+</style>
