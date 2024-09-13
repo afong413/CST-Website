@@ -29,12 +29,16 @@ export const getStaticPaths = (async () => {
 <Layout title={`Problem ${entry.slug}`} width="w-[56rem]">
   <h1 class="mt-8 border-b border-z pb-2 text-2xl font-bold text-z-heading">
     Problem {entry.slug}
+    (<a href="/problems" class="text-z-link underline underline-offset-2"
+      >or go back</a
+    >)
   </h1>
 
-  <div
-    class="x prose prose-neutral prose-blue prose-invert mt-12 max-w-full pb-24 text-z"
-  >
+  <div class="x my-12 font-mono text-xl text-z">
     <Content />
+  </div>
+
+  <div class="contents text-xl">
     <Problem
       functionName={entry.data.functionName}
       params={entry.data.params}
@@ -43,13 +47,3 @@ export const getStaticPaths = (async () => {
     />
   </div>
 </Layout>
-
-<style>
-  .x {
-    @apply text-xl;
-
-    pre {
-      @apply -mx-5;
-    }
-  }
-</style>

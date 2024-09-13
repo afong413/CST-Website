@@ -2,3 +2,59 @@ html {
   @apply z-dark-neutral z-dark-focus-blue;
   @apply bg-z-body text-z;
 }
+
+.x {
+  > * {
+    @apply my-[1em] first:mt-0 last:mb-0;
+  }
+
+  h1 {
+    @apply font-bold text-z-heading;
+  }
+
+  &.font-mono h1 {
+    @apply before:text-z-subtitle before:content-['#_'];
+  }
+
+  h2 {
+    @apply font-bold text-z-heading;
+  }
+
+  &.font-mono h2 {
+    @apply before:text-z-subtitle before:content-['##_'];
+  }
+
+  h3 {
+    @apply font-bold text-z-heading;
+  }
+
+  &.font-mono h3 {
+    @apply before:text-z-subtitle before:content-['###_'];
+  }
+
+  pre {
+    @apply -mx-4 rounded-lg px-4 py-2;
+  }
+
+  a {
+    @apply text-z-link underline underline-offset-[3px];
+  }
+
+  code:where(:not(pre *)) {
+    @apply font-bold text-z-heading before:content-['`'] after:content-['`'];
+  }
+
+  ol {
+    list-style-type: decimal;
+    padding-left: 3ch;
+  }
+
+  ul {
+    list-style-type: "- ";
+    padding-left: 2ch;
+  }
+
+  ::marker {
+    @apply text-z-subtitle;
+  }
+}

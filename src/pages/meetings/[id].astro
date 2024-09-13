@@ -28,19 +28,7 @@ export const getStaticPaths = (async () => {
     {entry.slug}
   </h1>
 
-  <div
-    class="x prose prose-neutral prose-blue prose-invert mt-12 max-w-full pb-24 text-z"
-  >
+  <div class="x mt-12 max-w-full pb-24 font-mono text-z-subtitle">
     <Content />
   </div>
 </Layout>
-
-<style>
-  .x {
-    @apply text-xl;
-
-    pre {
-      @apply -mx-5;
-    }
-  }
-</style>

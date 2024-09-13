@@ -53,7 +53,7 @@ export function Problem(props: {
 
   return (
     <>
-      <div class="mb-2 flex h-16 w-full items-center gap-2 p-2 pl-0">
+      <div class="not-prose mb-2 flex h-16 w-full items-center gap-2 p-2 pl-0">
         <h2 class="text-xl">Tests: </h2>
         {correct() ? (
           <For each={correct()}>
@@ -77,18 +77,18 @@ export function Problem(props: {
           </For>
         )}
       </div>
-      <div class="relative flex h-full w-full bg-[#24292e]">
+      <div class="not-prose relative -mx-5 flex h-full rounded-md bg-[#24292e] font-mono text-[0.875em]">
         <pre>
           <div
             id="highlighted"
-            class="absolute left-0 top-0 size-full p-4"
+            class="absolute left-0 top-0 size-full px-4 py-2"
             aria-hidden
           />
         </pre>
         <code>
           <textarea
             id="input"
-            class="absolute left-0 top-0 size-full resize-none bg-black bg-opacity-0 p-4 text-black text-opacity-0 caret-white"
+            class="z-field-focusable absolute left-0 top-0 size-full resize-none rounded-md bg-[#24292e] bg-opacity-0 px-4 py-2 text-black text-opacity-0 caret-white focus-within:outline-none"
             spellcheck={false}
             onInput={async (event) => {
               hightlight(event.target.value)
