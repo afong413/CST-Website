@@ -1,6 +1,10 @@
 html {
   @apply z-dark-neutral z-dark-focus-green;
   @apply bg-z-body text-z;
+  --z-text: theme("colors.green.200");
+  --z-bg-body: #02170b;
+  --z-text-heading: theme("colors.green.100");
+  --z-text-subtitle: theme("colors.green.500");
 }
 
 h4,
